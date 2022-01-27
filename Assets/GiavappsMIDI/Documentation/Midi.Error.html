@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Midi.Error</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Midi.Error Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Midi.Error</strong> class is mainly used for retrieving error messages from <strong>Midi</strong> functions.</p>
+<p>&nbsp;</p>
+<h2>Midi.Error Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Error.</strong><strong class="c_red">ManualChecking( <span class="c_blue">bool</span> ManualChecking )</strong> specifies if <strong>Giavapps MIDI</strong> should store data about detected errors in order that you can then check that data through<strong> Midi.Error.*</strong> functions. By default this feature is <strong>disabled</strong>. When this feature is <strong>enabled</strong> you must always loop through all received data by calling <strong>Midi.Error.Count()</strong> (usually inside <strong>Update()</strong> or <strong>Coroutine</strong> methods). If an application continues sending errors and you are not processing them you may cause a <strong>memory leak</strong>. (See <strong>Code Examples</strong> below for more info about how to manual check errors correctly). When this feature is <strong>disabled</strong>, <strong>Giavapps MIDI</strong> will stop storing data for errors. You can leave <strong>disabled</strong> this feature if you are not going to use any of the <strong>Midi.Error.*</strong> functions.</p>
+<p><strong class="c_blue">bool</strong> <strong class="c_red">ManualChecking:</strong> enable (<strong>true</strong>) or disable (<strong>false</strong>) manual check.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Error.</strong><strong class="c_red">Count() </strong>returns the amount of detected errors. Use the other <strong>Midi.Error.*</strong> functions to get info about the messages. When you call this function <strong>Giavapps MIDI</strong> will <strong>free</strong> data stored for errors (see <strong>Midi.Error.ManualChecking() </strong>function  for more info).</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Error.</strong><strong class="c_red">String(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">ErrorIndex )</strong> returns the specified error string.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">ErrorIndex</strong><strong class="c_red">:</strong> zero-based index of the error.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+  <span class="c_keyword_unity">void</span> Awake()<br>
+    {<br>
+  <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Error</span>.ManualChecking(<span class="c_keyword_unity">true</span>);<span class="c_comment_unity">//Enables manual checking of error messages</span><br>
+  <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Open(<span class="c_value_unity">2</span>);<span class="c_comment_unity">//Opens the third MIDI Input Device (&quot;Oxygen 49&quot; MIDI Keyboard in my case)</span><br>
+  }<br>
+  <br>
+  <span class="c_keyword_unity">void</span> Update()<br>
+{<span class="c_comment_unity"><br>
+</span>
+<div class="indent"><span class="c_keyword_unity"><span class="c_comment_unity">//Check for error messages<br>
+  </span>ulong</span> errors = <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Error</span>.Count();<br>
+      <span class="c_keyword_unity">for</span>(<span class="c_keyword_unity">ulong</span> e = <span class="c_value_unity">0</span>; e &lt; errors; e++)<br>
+{<br>
+<span class="c_type_unity">Debug</span>.Log(<span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Error</span>.String(e));<span class="c_comment_unity">//Prints an error message</span><br>
+}<br>
+  <br>
+  <span class="c_comment_unity">//Checks if space key is pressed </span><br>
+  <span class="c_keyword_unity">if</span>(<span class="c_type_unity">Input</span>.GetKeyDown(<span class="c_type_unity">KeyCode</span>.Space))<br>
+  {<br>
+  <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Open(<span class="c_value_unity">2</span>);<span class="c_comment_unity">//Ops! This causes an error!</span><br>
+  }</div>
+<br>
+}<br>
+<br>
+  <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+      {<br>
+      <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Midi</span><br>
+      }<br>
+  </div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

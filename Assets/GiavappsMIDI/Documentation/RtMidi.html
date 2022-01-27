@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>RtMidi</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About RtMidi Functions</h2>
+<p>&nbsp;</p>
+<p><span class="c_red"><strong>RtMidi</strong></span> functions have different features, performance and limitations but they are cross-platform and work on both <strong>Windows</strong> and <strong>Mac OS X</strong>.</p>
+<p><strong>RtMidi</strong> functions can handle one <strong>MIDI Input</strong>   and one <strong>MIDI Output</strong> device at a time.</p>
+<p>The <strong>MIDI Input Buffer</strong> for receiving <strong>MIDI Messages</strong> has a limit of <strong>1024 bytes</strong>.</p>
+<p>The <strong>MIDI Output Buffer</strong> for sending <strong>MIDI Messages</strong> has no limits.</p>
+<p>&nbsp;</p>
+<h2>About RtMidi Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">RtMidi</strong> class is mainly used for initializing and deinitializing <strong>RtMidi</strong> library.</p>
+<p>&nbsp;</p>
+<h2>RtMidi Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.</strong><strong class="c_red">Initialize()</strong> method initializes <strong>RtMidi</strong> library. This function should be called before any other function (usually inside <strong>Awake()</strong> or <strong>Start()</strong> methods).</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.</strong><strong class="c_red">Deinitialize()</strong> method deinitializes <strong>RtMidi</strong> library. This function should be called for freeing memory used (usually inside <strong>OnApplicationQuit</strong><strong>()</strong> method).</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+<span class="c_keyword_unity">void</span> Awake()<br>
+{<br>
+<span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.Initialize();<span class="c_comment_unity">//Initializes RtMidi</span><br>
+}<br>
+<br>
+<span class="c_keyword_unity">void</span> Update() <br>
+  {<br>
+  <span class="c_comment_unity">//Other function calls could be here or you can start a Coroutine for best performance!</span><br>
+  }<br>
+<br>
+<span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+{<br>
+<span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes RtMidi</span><br>
+}<br>
+</div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+<h2>RtMidi Class Members</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.</strong><strong class="c_red">Version</strong> member contains a string which determines the current <strong>RtMidi</strong> version.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">"RTMIDI VERSION: "</span>+<span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.Version);
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

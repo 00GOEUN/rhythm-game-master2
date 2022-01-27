@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mci.Sequencer.Set</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Mci.Sequencer.Status Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Mci.Sequencer.Status</strong> class is mainly used for retrieving playback informations of <strong>MIDI (*.mid)</strong> files through <strong>Mci</strong> functions.</p>
+<p>You can visit the following link for more info about the <strong>MCI</strong> command <strong>&quot;status&quot;</strong>:</p>
+<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd798683(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/desktop/dd798683(v=vs.85).aspx</a></p>
+<p>&nbsp;</p>
+<h2>Mci.Sequencer.Status Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">CurrentTrack(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status current track&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">DivisionType(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status division type&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Length(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status length&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">LengthTrack(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">string</strong> <strong class="c_red">TrackNumber) </strong>executes the <strong>MCI</strong> command <strong>&quot;status length track number&quot;</strong>.This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.<br>
+<strong class="c_blue">string</strong> <strong class="c_red">TrackNumber</strong><strong class="c_red">:</strong> track number.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">MediaPresent(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status media present&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Mode(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status mode&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">NumberOfTracks(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status number of tracks&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Offset(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status offset&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Port(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status port&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Position(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status position&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">PositionTrack(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">string</strong> <strong class="c_red">TrackNumber) </strong>executes the <strong>MCI</strong> command <strong>&quot;status position track number&quot;</strong>.This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.<br>
+  <strong class="c_blue">string</strong> <strong class="c_red">TrackNumber</strong><strong class="c_red">:</strong> track number.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Ready(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status ready&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Slave(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status slave&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">StartPosition(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status start position&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">Tempo(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status tempo&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">TimeFormat(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status time format&quot;</strong>. This function returns a string with the requested value or an empty string if fails.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">IsPlaying(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status mode&quot;</strong> and returns <strong>true</strong> if the result was equal to <strong>&quot;playing&quot;</strong> or <strong>false</strong> otherwise.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">IsStopped(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status mode&quot;</strong> and returns <strong>true</strong> if the result was equal to <strong>&quot;stopped&quot;</strong> or <strong>false</strong> otherwise.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Status.</strong><strong class="c_red">IsPaused(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;status mode&quot;</strong> and returns <strong>true</strong> if the result was equal to <strong>&quot;paused&quot;</strong> or <strong>false</strong> otherwise.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent"><span class="c_keyword_unity">private string</span> FileName = <span class="c_string_unity">&quot;mymidi.mid&quot;</span>;<br>
+  <span class="c_keyword_unity">private ulong</span> DeviceIndex; <br>
+  <br>
+  <span class="c_keyword_unity">void</span> Awake()<br>
+    {<br>
+  <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Initialize();<span class="c_comment_unity">//Initializes Mci</span><br>
+  DeviceIndex = <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.<span class="c_type_unity">Sequencer</span><span class="c_type_unity"></span>.Open(FileName);<span class="c_comment_unity">//Opens the specified MIDI file into the MCI MIDI Sequencer for playback</span><br>
+  }<br>
+  <br>
+  <span class="c_keyword_unity">void</span> Update()<br>
+{<span class="c_comment_unity"><br>
+</span>
+<div class="indent"><span class="c_comment_unity">//Checks if space key is pressed </span><br>
+  <span class="c_keyword_unity">if</span>(<span class="c_type_unity">Input</span>.GetKeyDown(<span class="c_type_unity">KeyCode</span>.Space))<br>
+  <span class="c_comment_unity">{<br>
+  </span>
+  <div class="indent"><span class="c_comment_unity">//Checks if the MIDI file is playing... </span><br>
+    <span class="c_keyword_unity">if</span>(<span class="c_type_unity">Mci</span>.<span class="c_type_unity">Sequencer</span>.<span class="c_type_unity">Status</span>.IsPlaying(DeviceIndex))<br>
+    {<br>
+    <span class="c_type_unity">Mci</span>.<span class="c_type_unity">Sequencer</span>.Stop(DeviceIndex);<span class="c_comment_unity">//Stops the MIDI file</span><br>
+    }<br>
+    <span class="c_keyword_unity">else</span><br>
+    {<br>
+    <span class="c_type_unity">Mci</span>.<span class="c_type_unity">Sequencer</span>.Play(DeviceIndex);<span class="c_comment_unity">//Plays the MIDI file</span><br>
+    }</div>
+  <br>
+  }</div>
+<br>
+}<br>
+<br>
+  <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+      {<br>
+      <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Mci</span><br>
+      }<br>
+  </div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

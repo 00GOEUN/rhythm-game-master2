@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mci</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Mci Functions</h2>
+<p>&nbsp;</p>
+<p><span class="c_red"><strong>Mci</strong></span> functions use native <strong>Windows API</strong> and <strong>MCI (Media Control Interface)</strong> commands for playing external <strong>MIDI (*.mid)</strong> files through the default <strong>MCI MIDI Sequencer</strong>.</p>
+<p>Note that <strong>Giavapps MIDI</strong> also includes an extra feature for executing custom <strong>MCI</strong> commands:  you can do a lot more with it!</p>
+<p>You can check the following link for more info about: <a href="https://msdn.microsoft.com/it-it/library/windows/desktop/dd798439(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/it-it/library/windows/desktop/dd798439(v=vs.85).aspx</a></p>
+<p>&nbsp;</p>
+<h2>About Mci Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Mci</strong> class is mainly used for initializing and deinitializing <strong>Mci</strong> library but also for sending custom <strong>MCI</strong> commands.</p>
+<p>&nbsp;</p>
+<h2>Mci Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.</strong><strong class="c_red">Initialize()</strong> method initializes <strong>Mci</strong> library. This function should be called before any other function (usually inside <strong>Awake()</strong> or <strong>Start()</strong> methods).</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.</strong><strong class="c_red">Deinitialize()</strong> method deinitializes <strong>Mci</strong> library. This function should be called for freeing memory used (usually inside <strong>OnApplicationQuit</strong><strong>()</strong> method).</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.</strong><strong class="c_red">Command( </strong><strong class="c_blue">string</strong><strong class="c_red"> Command )</strong> sends a command string to an <strong>MCI</strong> device. You can check the following link for a full list of available commands: <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743373(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/desktop/dd743373(v=vs.85).aspx</a></p>
+<p><strong class="c_blue">string</strong><strong class="c_red"> Command:</strong> string that specifies an <strong>MCI</strong> command string.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+<span class="c_keyword_unity">void</span> Awake()<br>
+{<br>
+<span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Initialize();<span class="c_comment_unity">//Initializes Mci</span><br>
+}<br>
+<br>
+<span class="c_keyword_unity">void</span> Update() <br>
+  {<br>
+  <span class="c_comment_unity">//Other function calls could be here or you can start a Coroutine for best performance!</span><br>
+  }<br>
+<br>
+<span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+{<br>
+<span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Mci</span><br>
+}<br>
+</div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+<h2>Mci Class Members</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.</strong><strong class="c_red">Alias</strong> member contains a string which determines the current alias prefix name used for internal <strong>MCI</strong> commands. The full alias name used internally is equal to <strong>Mci.Alias+DeviceIndex</strong> (<strong>&quot;midi1&quot;</strong> for example). You can leave this value as it is or you can edit it (manually) for using your own custom alias name. Note that if this value is set to an empty string <strong>Giavapps MIDI</strong> will use the default alias prefix name (which is <strong>&quot;midi&quot;</strong>).</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">"MCI ALIAS: "</span>+<span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Alias);
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

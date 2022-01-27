@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Midi</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Midi Functions</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Midi</strong> functions use native <strong>Windows API</strong>.</p>
+<p><strong>Midi</strong> functions can handle multiple <strong>MIDI Input</strong>   and multiple <strong>MIDI Output</strong> devices at a time.</p>
+<p>The <strong>MIDI Input Buffers</strong> for receiving <strong>MIDI Messages</strong> have a limit of <strong>1024 bytes</strong>.</p>
+<p>The <strong>MIDI Output Buffer</strong> for sending <strong>MIDI Messages</strong> has no limits.</p>
+<p>&nbsp;</p>
+<h2>About Midi Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Midi</strong> class is mainly used for deinitializing <strong>Midi</strong> library.</p>
+<p>&nbsp;</p>
+<h2>Midi Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.</strong><strong class="c_red">Deinitialize()</strong> method deinitializes <strong>Midi</strong> library. This function should be called for freeing memory used (usually inside <strong>OnApplicationQuit</strong><strong>()</strong> method).</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+<span class="c_keyword_unity">void</span> Awake()<br>
+{<br>
+<span class="c_comment_unity">//Other function calls could be here...</span><br>
+}<br>
+<br>
+<span class="c_keyword_unity">void</span> Update() <br>
+  {<br>
+  <span class="c_comment_unity">//Other function calls could be here or you can start a Coroutine for best performance!</span><br>
+  }<br>
+<br>
+<span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+{<br>
+<span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Midi</span><br>
+}<br>
+</div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

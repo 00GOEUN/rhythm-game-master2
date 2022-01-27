@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Giavapps.MIDI.Plugin</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Giavapps.MIDI.Plugin Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Giavapps.MIDI.</strong><strong class="c_red">Plugin</strong> class is mainly used for retrieving information about <strong>Giavapps MIDI</strong> extension.</p>
+<p>&nbsp;</p>
+<h2>Giavapps.MIDI.Plugin Class Members</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Giavapps.MIDI.Plugin.</strong><strong class="c_red">Name</strong> member contains a string that identifies the name of the external library loaded by <strong>Unity</strong> software. Note that you can manually change the name to <strong>&quot;GiavappsMIDI_x86&quot;</strong> (if you are using a <strong>32-bit</strong> version of the <strong>Unity Editor</strong>) or keep <strong>&quot;GiavappsMIDI_x64&quot; </strong>(if you are using a <strong>64-bit</strong> version of the <strong>Unity Editor</strong>). If you're on <strong>Mac OS X</strong> you must manually change the name to <strong>&quot;GiavappsMIDI_x86_64&quot;</strong> in order to let the software load the <strong>Universal Binary</strong> that contains both <strong>32-bit</strong> and <strong>64-bit</strong> architectures.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Giavapps.MIDI.Plugin.</strong><strong class="c_red">Version</strong> member contains a string that identifies the version of the <strong>Giavapps MIDI</strong> extension. Note that you shouldn't edit this value.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+<span class="c_keyword_unity">void</span> Awake()<br>
+{<br>
+<span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">&quot;PLUGIN NAME: &quot;</span>+<span class="c_keyword_unity">Plugin</span>.Name);<br>
+<span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">&quot;PLUGIN VERSION: &quot;</span>+<span class="c_keyword_unity">Plugin</span>.Version); <br>
+}<br>
+</div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

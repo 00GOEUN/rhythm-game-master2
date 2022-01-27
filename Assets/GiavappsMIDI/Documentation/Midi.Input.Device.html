@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Midi.Input.Device</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Midi.Input.Device Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Midi.Input.Device</strong> class is mainly used for retrieving information about <strong>MIDI Input</strong> devices and for opening and closing <strong>MIDI Input</strong> devices.</p>
+<p>&nbsp;</p>
+<h2>Midi.Input.Device Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">Count()</strong> returns the amount of connected <strong>MIDI Input</strong> devices. This function detects connected <strong>MIDI Input</strong> devices.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">Name(</strong><strong class="c_blue"> uint</strong> <strong class="c_red">DeviceIndex )</strong> returns a string identifier for the specified <strong>MIDI Input</strong> device.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">Open(</strong> <strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex )</strong> opens the specified <strong>MIDI Input</strong> device. Only open devices can receive messages.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">OpenAll(</strong><strong class="c_red"> )</strong> opens all <strong>MIDI Input</strong> devices. Only open devices can receive messages.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">IsOpen( <strong class="c_blue">uint</strong> DeviceIndex ) </strong>returns <strong>true</strong> if a <strong>MIDI Input</strong> device is open and <strong>false</strong> if not.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">OpenCount(</strong><strong class="c_red"> )</strong> returns the  amount of open <strong>MIDI Input</strong> devices.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">Close(</strong> <strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex )</strong> closes the specified <strong>MIDI Input</strong> device. Note that when you call <strong>Midi.Deinitialize()</strong> function or when you unplug the device it will be closed automatically by <strong>Giavapps MIDI</strong> extension.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">CloseAll(</strong><strong class="c_red">)</strong> closes all open <strong>MIDI Input</strong> devices. Note that when you call <strong>Midi.Deinitialize()</strong> function or when you unplug the device it will be closed automatically by <strong>Giavapps MIDI</strong> extension.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">Connect(</strong> <strong class="c_blue">uint</strong> <strong class="c_red">InputDeviceIndex,</strong> <strong class="c_blue">uint</strong> <strong class="c_red">OutputDeviceIndex</strong> <strong class="c_red">)</strong> connects the given <strong>MIDI Input</strong> device with the specified <strong>MIDI Output</strong> device. The <strong>MIDI Input</strong> device will send all received <strong>MIDI Messages</strong> to <strong>MIDI Output</strong> device automatically.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">InputDeviceIndex:</strong> zero-based index of the device.<br>
+<strong class="c_blue">uint</strong> <strong class="c_red">OutputDeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">Disconnect(</strong> <strong class="c_blue">uint</strong> <strong class="c_red">InputDeviceIndex,</strong> <strong class="c_blue">uint</strong> <strong class="c_red">OutputDeviceIndex</strong> <strong class="c_red">)</strong> disconnects the given <strong>MIDI Input</strong> device from the specified <strong>MIDI Output</strong> device. Note that when you call <strong>Midi.Deinitialize()</strong> function or when you unplug the device or when you close the device it will be disconnected automatically by <strong>Giavapps MIDI</strong> extension.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">InputDeviceIndex:</strong> zero-based index of the device.<br>
+<strong class="c_blue">uint</strong> <strong class="c_red">OutputDeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">ConnectionCount(</strong> <strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex )</strong> returns the amount of connections set for the specified <strong>MIDI Input</strong> device.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Device.</strong><strong class="c_red">ConnectionExists(</strong> <strong class="c_blue">uint</strong> <strong class="c_red">InputDeviceIndex,</strong> <strong class="c_blue">uint</strong> <strong class="c_red">OutputDeviceIndex</strong> <strong class="c_red">)</strong><strong class="c_red"> </strong>returns <strong>true</strong> if the given <strong>MIDI Input</strong> device is connected with the specified <strong>MIDI Output</strong> device or <strong>false</strong> otherwise.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">InputDeviceIndex:</strong> zero-based index of the device.<br>
+<strong class="c_blue">uint</strong> <strong class="c_red">OutputDeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+  <p><span class="c_keyword_unity">void</span> Awake()<br>
+    {
+  <div class="indent">
+      <span class="c_comment_unity">//Prints all available MIDI Input devices</span><br>
+      <span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">&quot;MIDI INPUT DEVICES:&quot;</span>);<br>
+      <span class="c_keyword_unity">uint</span> i; <br>
+      <span class="c_keyword_unity">for</span>(i=<span class="c_value_unity">0</span>; i &lt; <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Count(); i++)<br>
+      {<br>
+      <span class="c_type_unity">Debug</span>.Log(<span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Name(i));<br>
+      }<br>
+      <br>
+      <span class="c_comment_unity">//Prints all available MIDI Output devices</span><br>
+      <span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">&quot;MIDI OUTPUT DEVICES:&quot;</span>);<br>
+      <span class="c_keyword_unity">for</span>(i=<span class="c_value_unity">0</span>; i &lt; <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Device</span>.Count(); i++)<br>
+      {<br>
+      <span class="c_type_unity">Debug</span>.Log(<span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Device</span>.Name(i));<br>
+      }<br>
+      <br>
+      <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Open(<span class="c_value_unity">2</span>);<span class="c_comment_unity">//Opens the third MIDI Input Device (&quot;Oxygen 49&quot; MIDI Keyboard in my case)</span><br>
+      <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Device</span>.Open(<span class="c_value_unity">0</span>);<span class="c_comment_unity">//Opens the first MIDI Output Device (&quot;Microsoft GS Wavetable Synth&quot; by default on Windows)</span><br>
+      <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Connect(<span class="c_value_unity">2</span>, <span class="c_value_unity">0</span>);<span class="c_comment_unity">//Sends all received MIDI Input Messages to the MIDI Output Device (&quot;Oxygen 49&quot; &gt;&gt;&gt; &quot;Microsoft GS Wavetable Synth&quot; in my case)</span></div>
+    }<br>
+    <br>
+    <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+    {<br>
+    <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Midi</span><br>
+    }<br>
+  </p>
+</div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Time Delay
+BPM
+Beat Distance
+Sync
+Definition Num

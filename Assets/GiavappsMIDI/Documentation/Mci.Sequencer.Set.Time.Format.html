@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mci.Sequencer.Set.Time.Format</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Mci.Sequencer.Set.Time.Format Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Mci.Sequencer.Set.Time.Format</strong> class is mainly used for setting the time format of <strong>MIDI (*.mid)</strong> files through <strong>Mci</strong> functions.</p>
+<p>You can visit the following link for more info about the <strong>MCI</strong> command <strong>&quot;set&quot;</strong>:</p>
+<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd798661(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/desktop/dd798661(v=vs.85).aspx</a></p>
+<p>&nbsp;</p>
+<h2>Mci.Sequencer.Set.Time.Format Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Set.Time.Format.</strong><strong class="c_red">Milliseconds(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;set time format milliseconds&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Set.Time.Format.</strong><strong class="c_red">SMPTE(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">string</strong> <strong class="c_red">FPS) </strong>executes the <strong>MCI</strong> command <strong>&quot;set time format SMPTE fps&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.<br>
+<strong class="c_blue">string</strong> <strong class="c_red">FPS</strong><strong class="c_red">:</strong> frames per second.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Set.Time.Format.</strong><strong class="c_red">SMPTE30Drop(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;set time format SMPTE 30 drop&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.Set.Time.Format.</strong><strong class="c_red">SongPointer(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">) </strong>executes the <strong>MCI</strong> command <strong>&quot;set time format song pointer&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent"><span class="c_keyword_unity">private string</span> FileName = <span class="c_string_unity">&quot;mymidi.mid&quot;</span>;<br>
+  <span class="c_keyword_unity">private ulong</span> DeviceIndex; <br>
+  <br>
+  <span class="c_keyword_unity">void</span> Awake()<br>
+    {<br>
+  <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Initialize();<span class="c_comment_unity">//Initializes Mci</span><br>
+  DeviceIndex = <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.<span class="c_type_unity">Sequencer</span><span class="c_type_unity"></span>.Open(FileName);<span class="c_comment_unity">//Opens the specified MIDI file into the MCI MIDI Sequencer for playback</span><br>
+  <span class="c_type_unity">Mci.Sequencer.Set.Time.Format</span><span class="c_type_unity"></span>.Milliseconds(DeviceIndex);<span class="c_comment_unity">//Sets a different time format for the MIDI file</span> <br>
+  }<br>
+  <br>
+  <span class="c_keyword_unity">void</span> Update()<br>
+{<span class="c_comment_unity"><br>
+</span>
+<div class="indent"><span class="c_comment_unity">//Checks if space key is pressed </span><br>
+  <span class="c_keyword_unity">if</span>(<span class="c_type_unity">Input</span>.GetKeyDown(<span class="c_type_unity">KeyCode</span>.Space))<br>
+  {<br>
+  <span class="c_type_unity">Mci</span>.<span class="c_type_unity">Sequencer</span>.Play(DeviceIndex);<span class="c_comment_unity">//Plays the MIDI file</span><br>
+  }<br>
+  <br>
+  <span class="c_comment_unity">//Checks if return key is pressed </span><br>
+  <span class="c_keyword_unity">if</span>(<span class="c_type_unity">Input</span>.GetKeyDown(<span class="c_type_unity">KeyCode</span>.Return))<br>
+{<br>
+<span class="c_type_unity">Debug</span>.Log(<span class="c_string_unity">&quot;POSITION: &quot;</span>+<span class="c_type_unity">Mci</span>.<span class="c_type_unity">Sequencer</span>.<span class="c_type_unity">Status</span>.Position(DeviceIndex));<span class="c_comment_unity">//shows the current playback position in the time format previously specified</span><br>
+} <br>
+</div>
+<br>
+}<br>
+<br>
+  <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+      {<br>
+      <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Mci</span><br>
+      }<br>
+  </div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

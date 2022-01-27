@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Mci.Sequencer</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Mci.Sequencer Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Mci.Sequencer</strong> class is mainly used for controlling playback of external <strong>MIDI (*.mid)</strong> files through <strong>Mci</strong> functions.</p>
+<p>You can visit the following link for more info about the <strong>MCI </strong>commands listed on this page:</p>
+<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/dd743373(v=vs.85).aspx" target="_blank">https://msdn.microsoft.com/en-us/library/windows/desktop/dd743373(v=vs.85).aspx</a></p>
+<p>&nbsp;</p>
+<h2>Mci.Sequencer Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">Open(</strong> <strong class="c_blue">string</strong> <strong class="c_red">FileName )</strong> executes the <strong>MCI</strong> command &quot;<strong>open</strong>&quot;. This function opens a device as <strong>&quot;type sequencer&quot;</strong> and returns a valid <strong>DeviceIndex</strong> which you can use with all other <strong>Mci.*</strong> functions or <strong>0</strong> otherwise.</p>
+<p><strong class="c_blue">string</strong> <strong class="c_red">FileName</strong><strong class="c_red">:</strong> full path to a <strong>MIDI (*.mid)</strong> file name.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">IsOpen(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex ) </strong>returns <strong>true</strong> if the given device is open and <strong>false</strong> if not.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">OpenCount( </strong><strong class="c_red">) </strong>returns the  amount of open devices.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">Close(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex ) </strong>executes the <strong>MCI</strong> command<strong>&quot;close&quot;</strong>. This function closes an open device and frees memory occupied. Note that when you call <strong>Mci.Deinitialize()</strong> function <strong>Giavapps MIDI</strong> will close all open devices for you automatically.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">Play(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex ) </strong>executes the <strong>MCI</strong> command <strong>&quot;play&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">PlayFrom(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">string</strong> <strong class="c_red">FromPosition) </strong>executes the <strong>MCI</strong> command <strong>&quot;play from position&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.<br>
+<strong class="c_blue">string</strong> <strong class="c_red">FromPosition</strong><strong class="c_red">:</strong> specifies a starting position for the playback.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">PlayFromTo(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">string</strong> <strong class="c_red">FromPosition,</strong> <strong class="c_blue">string</strong> <strong class="c_red">ToPosition</strong><strong class="c_red">)</strong> executes the <strong>MCI</strong> command <strong>&quot;play from position to position&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.<br>
+<strong class="c_blue">string</strong> <strong class="c_red">FromPosition</strong><strong class="c_red">:</strong> specifies a starting position for the playback.<br>
+<strong class="c_blue">string</strong> <strong class="c_red">ToPosition</strong><strong class="c_red">:</strong> specifies an ending position for the playback.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">Stop(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex ) </strong>executes the <strong>MCI</strong> command <strong>&quot;stop&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">Pause(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex ) </strong>executes the <strong>MCI</strong> command <strong>&quot;pause&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">Seek(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">string</strong> <strong class="c_red">ToPosition)</strong> executes the <strong>MCI</strong> command <strong>&quot;seek to position&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.<br>
+<strong class="c_blue">string</strong> <strong class="c_red">ToPosition</strong><strong class="c_red">:</strong> specifies the position to stop the seek.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">SeekToStart(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">)</strong> executes the <strong>MCI</strong> command <strong>&quot;seek to start&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Mci.Sequencer.</strong><strong class="c_red">SeekToEnd(</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">)</strong> executes the <strong>MCI</strong> command <strong>&quot;seek to end&quot;</strong>.</p>
+<p><strong class="c_blue">ulong</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red">:</strong> device index.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent"><span class="c_keyword_unity">private string</span> FileName = <span class="c_string_unity">&quot;mymidi.mid&quot;</span>;<br>
+  <span class="c_keyword_unity">private ulong</span> DeviceIndex; <br>
+  <br>
+  <span class="c_keyword_unity">void</span> Awake()<br>
+    {<br>
+  <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Initialize();<span class="c_comment_unity">//Initializes Mci</span><br>
+  DeviceIndex = <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.<span class="c_type_unity">Sequencer</span><span class="c_type_unity"></span>.Open(FileName);<span class="c_comment_unity">//Opens the specified MIDI file into the MCI MIDI Sequencer for playback</span><br>
+  }<br>
+  <br>
+  <span class="c_keyword_unity">void</span> Update()<br>
+{<span class="c_comment_unity"><br>
+</span>
+<div class="indent"><span class="c_comment_unity">//Checks if space key is pressed </span><br>
+  <span class="c_keyword_unity">if</span>(<span class="c_type_unity">Input</span>.GetKeyDown(<span class="c_type_unity">KeyCode</span>.Space))<br>
+  {<br>
+  <span class="c_type_unity">Mci</span>.<span class="c_type_unity">Sequencer</span>.Play(DeviceIndex);<span class="c_comment_unity">//Plays the MIDI file</span><br>
+  }</div>
+<br>
+}<br>
+<br>
+  <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+      {<br>
+      <span class="c_type_unity">Mci</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Mci</span><br>
+      }<br>
+  </div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

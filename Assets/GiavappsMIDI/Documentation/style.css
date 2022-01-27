@@ -1,0 +1,127 @@
+/************************************
+
+Giavapps © 2012-2017 Luigi Piscopo.
+All rights reserved.
+
+************************************/
+
+.c_red {color: #FF0000}
+.c_green {color: #008D35}
+.c_blue {color: #006AB3}
+
+.c_keyword{
+color: #FFB871;
+}
+
+.c_value{
+color: #FF8080;
+}
+
+.c_comment{
+color: #5B995B;
+}
+
+.c_string{
+	color:#FFFF00;
+}
+
+.c_variable{
+	color: #B2B1FF;
+}
+
+.c_variable_build_in{
+	color: #58E55A;
+}
+
+.c_variable_local{
+	color: #FFF899;
+}
+
+.c_macro{
+	color: #FF5B5B;
+}
+
+.code{
+  width: 100%;
+  border: 1px;
+  color: #C0C0C0;
+  border-color: #000000;
+  background-color: #222222;
+  padding: 10px;
+}
+
+.border {
+  border: 1px solid white;
+}
+
+.rounded {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.hmirror{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.vmirror{
+  -moz-transform: scaleY(-1);
+  -o-transform: scaleY(-1);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+  filter: FlipV;
+  -ms-filter: "FlipV";
+}
+
+.c_keyword_unity{
+color: #009695;
+}
+
+.c_value_unity{
+color: #F57D00;
+}
+
+.c_type_unity{
+	color: #3364A4;
+}
+
+.c_comment_unity{
+color: #888888;
+font-style: italic;
+}
+
+.c_string_unity{
+	color: #F57D00;
+}
+
+.c_string_escape_unity{
+	color: #A53E00;
+}
+
+.code_unity{
+  width: 96%;
+  border: 1px;
+  color: #333333;
+  border-style: dotted;
+  border-color: #888888;
+  background-color: #FFFFFF;
+  font-family: "DejaVu Sans";
+  font-size: 13px;
+  padding: 10px;
+}
+
+.code_caption_unity{
+	color: #888888;
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.indent{
+	padding-left: 40px
+}

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>RtMidi.Output.Message</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About RtMidi.Output.Message Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">RtMidi.Output.Message</strong> class is mainly used for sending <strong>MIDI Messages</strong> to <strong>MIDI Output</strong> devices.</p>
+<p>&nbsp;</p>
+<h2>RtMidi.Output.Message Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.Output.Message.</strong><strong class="c_red">Clear()</strong> clears the <strong>MIDI Message Buffer</strong>. This function removes all bytes previously stored in the <strong>MIDI Message Buffer</strong>.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.Output.Message.</strong><strong class="c_red">Size() </strong>returns the amount of bytes stored in the <strong>MIDI Message Buffer</strong>.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.Output.Message.</strong><strong class="c_red">Byte(</strong> <strong class="c_blue">byte</strong> <strong class="c_red">Byte )</strong> Adds one byte to the <strong>MIDI Message Buffer</strong>.</p>
+<p><strong class="c_blue">byte</strong> <strong class="c_red">Byte:</strong> value from <strong>0</strong> to <strong>255</strong>.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">RtMidi.Output.Message.</strong><strong class="c_red">Send()</strong> sends the <strong>MIDI Message Buffer</strong> previously created with <strong>RtMidi.Output.Message.*</strong> functions to the open <strong>MIDI Output</strong> device.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+  <span class="c_keyword_unity">void</span> Awake()<br>
+    {<br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.Initialize();<span class="c_comment_unity">///Initializes RtMidi</span><br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Device</span>.Open(<span class="c_value_unity">0</span>);<span class="c_comment_unity">//Opens the first MIDI Output Device (&quot;Microsoft GS Wavetable Synth&quot; by default on Windows)</span><br>
+  }<br>
+  <br>
+  <span class="c_keyword_unity">void</span> Update()<br>
+{<br>
+<span class="c_comment_unity"><br>
+</span>
+<div class="indent"><span class="c_keyword_unity"><span class="c_comment_unity">//Checks if space key is pressed </span><br>
+  if</span>(<span class="c_type_unity">Input</span>.GetKeyDown(<span class="c_type_unity">KeyCode</span>.Space))<br>
+  {<br>
+  <span class="c_comment_unity">//NOTE C5 ON – CHANNEL 1 – VELOCITY 100</span><br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Message</span>.Clear();<span class="c_comment_unity">//Clears the MIDI Message buffer</span><br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Message</span>.Byte(<span class="c_value_unity">144</span>);<span class="c_comment_unity">//Adds one byte to the MIDI Message buffer</span><br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Message</span>.Byte(<span class="c_value_unity">60</span>);<span class="c_comment_unity">//Adds one byte to the MIDI Message buffer</span><br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Message</span>.Byte(<span class="c_value_unity">100</span>);<span class="c_comment_unity">//Adds one byte to the MIDI Message buffer</span><br>
+  <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Message</span>.Send();<span class="c_comment_unity">//Sends the MIDI Message to the MIDI Output Device</span><br>
+  }</div>
+<br>
+}<br>
+<br>
+  <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+      {<br>
+      <span class="c_type_unity">RtMidi</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes RtMidi</span><br>
+      }<br>
+  </div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

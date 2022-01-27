@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Midi.Input.Message</title>
+<link rel="stylesheet" href="style.css" media="screen" />
+</head>
+
+<body>
+<p>&nbsp;</p>
+<h2>About Midi.Input.Message Class</h2>
+<p>&nbsp;</p>
+<p><strong class="c_red">Midi.Input.Message</strong> class is mainly used for receiving <strong>MIDI Messages</strong> from <strong>MIDI Input</strong> devices.</p>
+<p>&nbsp;</p>
+<h2>Midi.Input.Message Class Methods</h2>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Message.</strong><strong class="c_red">ManualChecking( </strong><strong class="c_blue">bool</strong><strong class="c_red"> ManualChecking )</strong> specifies if <strong>Giavapps MIDI</strong> should store data about detected <strong>MIDI Messages</strong> in order that you can then check that data through<strong> Midi.Input.Message.*</strong> functions. By default this feature is <strong>disabled</strong>. When this feature is <strong>enabled</strong> you must always loop through all received data by calling <strong>Midi.Input.Message.Count()</strong> (usually inside <strong>Update()</strong> or <strong>Coroutine</strong> methods). If a <strong>MIDI </strong>device continues sending<strong> MIDI Messages</strong> and you are not processing them you may cause a <strong>memory leak</strong>. (See <strong>Code Examples</strong> below for more info about how to manual check <strong>MIDI Messages</strong> correctly). When this feature is <strong>disabled</strong>, <strong>Giavapps MIDI</strong> will stop storing data for <strong>MIDI Messages</strong>. You can leave <strong>disabled</strong> this feature if you are not going to use any of the <strong>Midi.Input.Message.*</strong> functions.</p>
+<p><strong class="c_blue">bool</strong> <strong class="c_red">ManualChecking:</strong> enable (<strong>true</strong>) or disable (<strong>false</strong>) manual check.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Message.</strong><strong class="c_red">Count(</strong><strong class="c_blue"> uint</strong> <strong class="c_red">DeviceIndex</strong><strong class="c_red"> )</strong> returns the amount of messages from the specified <strong>MIDI Input</strong> device. Use the other <strong>Midi.Input.Message.*</strong> functions to get info about the messages. When you call this function <strong>Giavapps MIDI</strong> will <strong>free</strong> data stored for <strong>MIDI Messages</strong> (see <strong>Midi.Input.Message.ManualChecking() </strong>function  for more info).</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Message.</strong><strong class="c_red">Size(</strong><strong class="c_blue"> uint</strong> <strong class="c_red">DeviceIndex,</strong><strong class="c_blue"> ulong</strong> <strong class="c_red">MessageIndex )</strong> returns the amout of bytes of the specified <strong>MIDI Message</strong>.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.<strong class="c_blue"><br>
+ulong</strong> <strong class="c_red">MessageIndex:</strong> zero-based index of the <strong>MIDI Message</strong>.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Message.</strong><strong class="c_red">Byte(</strong><strong class="c_blue"> uint</strong> <strong class="c_red">DeviceIndex,</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">MessageIndex,</strong> <strong class="c_blue">ulong</strong> <strong class="c_red">ByteIndex)</strong> Returns the specified byte (<strong>0-255</strong>) from the given <strong>MIDI Message</strong>.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.<strong class="c_blue"><br>
+  ulong</strong> <strong class="c_red">MessageIndex:</strong> zero-based index of the <strong>MIDI Message</strong>.<br>
+<strong class="c_blue">ulong</strong> <strong class="c_red">ByteIndex:</strong> zero-based index of the byte.</p>
+<p>&nbsp;</p>
+<p><strong class="c_blue">Midi.Input.Message.</strong><strong class="c_red">Time(</strong><strong class="c_blue"> uint</strong> <strong class="c_red">DeviceIndex,</strong><strong class="c_blue"> ulong</strong> <strong class="c_red">MessageIndex )</strong> returns the amount of time (milliseconds) passed since the <strong>MIDI Input</strong> device was open.</p>
+<p><strong class="c_blue">uint</strong> <strong class="c_red">DeviceIndex:</strong> zero-based index of the device.<strong class="c_blue"><br>
+ulong</strong> <strong class="c_red">MessageIndex:</strong> zero-based index of the <strong>MIDI Message</strong>.</p>
+<p>&nbsp;</p>
+<fieldset class="code_unity rounded">
+  <legend class="code_caption_unity">Code Example</legend>
+  <span class="c_keyword_unity">using</span> System.Collections;<br>
+<span class="c_keyword_unity">using</span> System.Collections.Generic;<br>
+<span class="c_keyword_unity">using</span> UnityEngine;<br>
+<span class="c_keyword_unity">using</span> Giavapps.MIDI;<br>
+<br>
+<span class="c_keyword_unity">public</span> <span class="c_keyword_unity">class</span> <span class="c_type_unity">CodeExample</span> : <span class="c_type_unity">MonoBehaviour</span><br>
+{<br>
+<div class="indent">
+  <span class="c_keyword_unity">void</span> Awake()<br>
+    {<br>
+  <span class="c_type_unity">Midi.Input.Device</span><span class="c_type_unity"></span>.Open(<span class="c_value_unity">2</span>);<span class="c_comment_unity">//Opens the third MIDI Input Device (&quot;Oxygen 49&quot; MIDI Keyboard in my case)</span><br>
+  <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Output</span>.<span class="c_type_unity">Device</span>.Open(<span class="c_value_unity">0</span>);<span class="c_comment_unity">//Opens the first MIDI Output Device (&quot;Microsoft GS Wavetable Synth&quot; by default on Windows)</span><br>
+  <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Connect(<span class="c_value_unity">2</span>, <span class="c_value_unity">0</span>);<span class="c_comment_unity">//Sends all received MIDI Input Messages to the MIDI Output Device (&quot;Oxygen 49&quot; &gt;&gt;&gt; &quot;Microsoft GS Wavetable Synth&quot; in my case)</span><br>
+  <span class="c_type_unity">Midi.Input.Message</span>.ManualChecking(<span class="c_keyword_unity">true</span>);<span class="c_comment_unity">//Enables manual checking of MIDI Messages </span><br>
+  }<br>
+  <br>
+  <span class="c_keyword_unity">void</span> Update()<br>
+{<br>
+<span class="c_comment_unity"><br>
+</span>
+<div class="indent">
+ <p><span class="c_keyword_unity"><span class="c_comment_unity">//Prints all received MIDI Messages</span><br>
+   for</span>(<span class="c_keyword_unity">uint</span> d=<span class="c_value_unity">0</span>; d &lt; <span class="c_type_unity">Midi</span>.<span class="c_type_unity">Input</span>.<span class="c_type_unity">Device</span>.Count(); d++)<br>
+   {</p>
+ <div class="indent"><span class="c_keyword_unity">ulong</span> messages = <span class="c_type_unity">Midi.Input.Message</span>.Count(d);<br>
+    <br>
+    <span class="c_keyword_unity">for</span>(<span class="c_keyword_unity">ulong</span> m = <span class="c_value_unity">0</span>; m &lt; messages; m++)<br>
+    {<br>
+    <span class="c_keyword_unity">ulong</span> time = <span class="c_type_unity">Midi.Input.Message</span><span class="c_type_unity"></span>.Time(d, m);<br>
+    <span class="c_keyword_unity">ulong</span> size = <span class="c_type_unity">Midi.Input.Message</span><span class="c_type_unity"></span>.Size(d, m);<br>
+    <span class="c_keyword_unity">string</span> bytes = <span class="c_string_unity">""</span>;<br>
+    <br>
+    <div class="indent"><span class="c_keyword_unity">for</span>(<span class="c_keyword_unity">ulong</span> b = <span class="c_value_unity">0</span>; b &lt; size; b++)<br>
+      {<br>
+      bytes += <span class="c_type_unity">Midi.Input.Message</span>.Byte(d, m, b).ToString()+<span class="c_string_unity">" "</span>;<br>
+      }</div>
+    <span class="c_type_unity"><br>
+      Debug</span>.Log(<span class="c_string_unity">"MIDI MESSAGE - TIME: "</span>+time.ToString()+<span class="c_string_unity">" - "</span>+size.ToString()+<span class="c_string_unity">" bytes - "</span>+bytes);<br>
+    }</div>
+    }
+</div>
+<br>
+}<br>
+<br>
+  <span class="c_keyword_unity">void</span> OnApplicationQuit()<br>
+      {<br>
+      <span class="c_type_unity">Midi</span><span class="c_type_unity"></span>.Deinitialize();<span class="c_comment_unity">//Deinitializes Midi</span><br>
+      }<br>
+  </div>
+<br>
+}
+</fieldset>
+<p>&nbsp;</p>
+</body>
+</html>

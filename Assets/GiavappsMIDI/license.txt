@@ -1,0 +1,3 @@
+Giavapps MIDI implements RtMidi (realtime MIDI i/o C++ classes).
+
+RtMidi Source: https://www.music.mcgill.ca/~gary/rtmidi/index.html
