@@ -21,6 +21,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmPlayer = null;
     [SerializeField] AudioSource midiPlayer = null;
 
+    
+
     void Awake()
     {
         isAudioManagerReady = false;
