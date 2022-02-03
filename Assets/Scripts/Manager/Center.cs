@@ -201,8 +201,8 @@ public class Center : MonoBehaviour
         if (bpmRatio < 1.5d)
         {
             preBpmRatio = bpmRatio;
-            bpmRatio += 0.01d;
-            pitch += 0.01f;
+            bpmRatio += 0.05d;
+            pitch += 0.05f;
             ChangeBPM();
         }
         Debug.Log("BPMUpClick");
@@ -214,9 +214,10 @@ public class Center : MonoBehaviour
         if (bpmRatio > 0.5d)
         {
             preBpmRatio = bpmRatio;
-            bpmRatio -= 0.01d;
-            pitch -= 0.01f;
+            bpmRatio -= 0.05d;
+            pitch -= 0.05f;
             ChangeBPM();
+
         }
         Debug.Log("BPMDownClick");
     }
