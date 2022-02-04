@@ -15,7 +15,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -2828774816958017321}
-  - {fileID: 6518445823912121974}
+  - {fileID: 8306080682927551726}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -49,7 +49,11 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: ce65b33e16db87741a7950c6e709fe0a
+    name: PitchBend
+  - guid: 410c9977b1541f644aabf863124094f4
+    name: PitchMixer
   m_AudioMixerGroupViews:
   - guids:
     - 8cabeef0d5d53f8439e30b0e35fdfaea
@@ -103,27 +107,30 @@ AudioMixerSnapshotController:
   m_FloatValues:
     19cf59909cf523d45b09b7a842b37c49: 0.5
     bdc345812c758ab4aba227f4af90c49f: 0.5
-    ce65b33e16db87741a7950c6e709fe0a: 0.5
+    a890f8b4ea83e094fb05ac51ce6b21f4: 0
+    410c9977b1541f644aabf863124094f4: 1
+    bfb128b979800e243a3e3a3e3218a2f2: 1
+    ce65b33e16db87741a7950c6e709fe0a: 1
   m_TransitionOverrides: {}
---- !u!244 &6518445823912121974
+--- !u!244 &8306080682927551726
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_EffectID: dc4843dd37cb79f469bc2f32604b3fcb
+  m_EffectID: 0215048814567e94db4fc06bb32a7dc4
   m_EffectName: Pitch Shifter
-  m_MixLevel: a890f8b4ea83e094fb05ac51ce6b21f4
+  m_MixLevel: 30853f3ff3f624a499ef4765aa0df77b
   m_Parameters:
   - m_ParameterName: Pitch
-    m_GUID: bfb128b979800e243a3e3a3e3218a2f2
+    m_GUID: 410c9977b1541f644aabf863124094f4
   - m_ParameterName: FFT size
-    m_GUID: 2dbfa191ab290d345afb5ea6b7e90bea
+    m_GUID: e0ffd1dab2a804448b0f6d033bcabd68
   - m_ParameterName: Overlap
-    m_GUID: b56b7790c84d1284b94a5d0937bbc1fe
+    m_GUID: 1fa9d90a542d0f24687caf1945c698d4
   - m_ParameterName: Max channels
-    m_GUID: 807e4070ecb7d7945b8275a2f934e92a
+    m_GUID: 141a8806b7131b142b64636c374ad054
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

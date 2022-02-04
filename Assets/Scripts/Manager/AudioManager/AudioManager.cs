@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+//using UnityEngine.Audio;
 
 [System.Serializable]
 public class Sound
@@ -21,7 +22,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource bgmPlayer = null;
     [SerializeField] AudioSource midiPlayer = null;
 
-    
 
     void Awake()
     {
@@ -91,3 +91,4 @@ public class AudioManager : MonoBehaviour
         midiPlayer.pitch = pitch;
     }
 }
+

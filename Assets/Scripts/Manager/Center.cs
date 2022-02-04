@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Center : MonoBehaviour
 
@@ -17,6 +18,7 @@ public class Center : MonoBehaviour
     NoteManager noteManager = null;
     AudioManager audioManager = null;
     SheetMusicManager sheetMusicManager = null;
+
 
     ////에디터
     //NoteManager
@@ -53,6 +55,11 @@ public class Center : MonoBehaviour
     //Repeat Method Variable
     InputField RepeatA = null;
     InputField RepeatB = null;
+
+
+    // Pictch 조절
+    public AudioMixer PitchMixer;
+    float pitchmixer;
 
     //초기 변수
     double orgBpm = 0;
@@ -95,6 +102,7 @@ public class Center : MonoBehaviour
         bpmRatio = 1;
         preBpmRatio = 1;
         pitch = 1;
+        pitchmixer = 1;
 
         LED = playerInformation.LED;
         LEDTime = playerInformation.LEDTime;
@@ -204,6 +212,23 @@ public class Center : MonoBehaviour
             bpmRatio += 0.05d;
             pitch += 0.05f;
             ChangeBPM();
+            if(pitchmixer <= 1 )
+            {
+                if (pitchmixer < 0.80)
+                    pitchmixer -= 0.03f;
+                else
+                    pitchmixer -= 0.04f;
+            }
+
+            if(pitchmixer > 1)
+            {
+                if (pitchmixer >= 1.48)
+                    pitchmixer -= 0.14f;
+                else
+                    pitchmixer -= 0.08f;
+            }
+
+            PitchMixerCont(pitchmixer);
         }
         Debug.Log("BPMUpClick");
     }
@@ -217,6 +242,24 @@ public class Center : MonoBehaviour
             bpmRatio -= 0.05d;
             pitch -= 0.05f;
             ChangeBPM();
+
+
+            if (pitchmixer >= 1)
+            {
+                if (pitchmixer > 1.48)
+                    pitchmixer += 0.14f;
+                else
+                    pitchmixer += 0.08f;
+            }
+            if (pitchmixer < 1)
+            {
+                if (pitchmixer <= 0.80)
+                    pitchmixer += 0.03f;
+                else
+                    pitchmixer += 0.04f;
+            }
+
+            PitchMixerCont(pitchmixer);
 
         }
         Debug.Log("BPMDownClick");
@@ -241,6 +284,7 @@ public class Center : MonoBehaviour
         BPMText.text = string.Format("{0:0.00}", bpmRatio);
     }
 
+    
     
     //구간 반복을 실행하는 함수.
     public void RepeatClick()
@@ -327,5 +371,10 @@ public class Center : MonoBehaviour
     {
         noteManager.SyncUpdate(Sync);
         SyncText.text = string.Format("{0:0.00}", (double)Sync / 10d);
+    }
+
+    public void PitchMixerCont(float pitch)
+    {
+        PitchMixer.SetFloat("PitchMixer", pitch);
     }
 }

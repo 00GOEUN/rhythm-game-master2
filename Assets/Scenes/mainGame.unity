@@ -1747,6 +1747,7 @@ Transform:
   - {fileID: 444648311}
   - {fileID: 57942308}
   - {fileID: 1189732130}
+  - {fileID: 1200841294}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1764,6 +1765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beatLine: {fileID: 964077162}
   bluetoothLEDLine: {fileID: 581555893}
+  PitchMixer: {fileID: 24100000, guid: 2bcb6f610ca09344d82641f498e4b53b, type: 2}
 --- !u!1 &444648310
 GameObject:
   m_ObjectHideFlags: 0
@@ -4451,6 +4453,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192643283}
   m_CullTransparentMesh: 1
+--- !u!1 &1200841293
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1200841294}
+  - component: {fileID: 1200841295}
+  m_Layer: 0
+  m_Name: PitchManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1200841294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200841293}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 434303905}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1200841295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200841293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198d6919a942fc84dac74f410f609844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pitch: {fileID: 24100000, guid: 2bcb6f610ca09344d82641f498e4b53b, type: 2}
 --- !u!1 &1204445777
 GameObject:
   m_ObjectHideFlags: 0
